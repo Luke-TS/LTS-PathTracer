@@ -29,8 +29,8 @@
   "cornell_wide": {
     "aspectRatio": 1.5,
     "imageWidth": 600,
-    "samplesPerPixel": 200,
-    "maxDepth": 100,
+    "samplesPerPixel": 100,
+    "maxDepth": 30,
 
     "vfov": 55.0,
     "lookfrom": [5.0, 6.0, -6.0],

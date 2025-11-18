@@ -7,7 +7,6 @@
 #include "integrator/sampler.h"
 #include "geom/sphere.h"
 #include "geom/rect.h"
-#include "gpu_utils.h"
 #include "material/texture.h"
 #include "core/timer.h"
 #include "renderer/wavefront.h"
@@ -175,7 +174,7 @@ int main(int argc, char** argv) {
     cam.Initialize();
 
     scene::Scene world;
-    switch(4) {
+    switch(1) {
         case 1: Spheres(world); break;
         case 2: checkered_spheres(world); break;
         case 3: earth(world); break;
