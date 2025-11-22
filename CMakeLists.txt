@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CUDA_STANDARD 17)
 set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 set(CMAKE_CUDA_SEPARABLE_COMPILATION ON)
-set(CMAKE_CUDA_ARCHITECTURES 86)
+set(CMAKE_CUDA_ARCHITECTURES native CACHE STRING "GPU arch")
 
 # Always export compile_commands.json for clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -34,18 +34,13 @@ add_executable(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME}
     PRIVATE
         ${CMAKE_SOURCE_DIR}/src
-        ${CMAKE_SOURCE_DIR}/src/core
-        ${CMAKE_SOURCE_DIR}/src/geom
-        ${CMAKE_SOURCE_DIR}/src/integrator
-        ${CMAKE_SOURCE_DIR}/src/material
-        ${CMAKE_SOURCE_DIR}/src/renderer
-        ${CMAKE_SOURCE_DIR}/src/scene
-        ${CMAKE_SOURCE_DIR}/src/third-party
+    SYSTEM PRIVATE
         ${CMAKE_SOURCE_DIR}/external/tinyobjloader
 )
 
 # ───────────────── Dependencies ────
-add_subdirectory(external/tinyobjloader)
+set(TINYOBJLOADER_BUILD_TEST OFF)
+add_subdirectory(external/tinyobjloader EXCLUDE_FROM_ALL)
 
 # JSON lib
 include(FetchContent)
@@ -68,7 +63,7 @@ target_link_libraries(${PROJECT_NAME}
 # ───────────────── Warning Levels ─
 target_compile_options(${PROJECT_NAME} PRIVATE
     $<$<COMPILE_LANGUAGE:CXX>:-Wall -Wextra -Wpedantic>
-    $<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler=-Wall>
+    $<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler=-Wall -Xcompiler=-Wextra>
 )
 
 # ────────── Multi-Config Output Layout ──
@@ -79,9 +74,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "${CMAKE_BINARY_DIR}/relwithdebinfo"
     RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "${CMAKE_BINARY_DIR}/minsizerel"
 )
-
-# Also make sure compile_commands.json appears in each build directory
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_custom_target(copy-compile-commands ALL
     COMMAND ${CMAKE_COMMAND} -E copy_if_different

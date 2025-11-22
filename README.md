@@ -53,8 +53,8 @@ A physically-based Monte Carlo ray tracer written in C++ featuring BVH accelerat
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/raytracer.git
-cd raytracer
+git clone https://github.com/Luke-TS/LTS-PathTracer.git
+cd LTS-PathTracer 
 
 # Create build directory
 mkdir build && cd build
@@ -110,7 +110,7 @@ Create a JSON configuration file to define camera presets:
 }
 ```
 
-Run the ray tracer with your scene file:
+Run the ray tracer with your camera config:
 
 ```bash
 ./raytracer wide > output.ppm
@@ -120,12 +120,13 @@ Images are output to stdout in ppm format.
 
 ## Example Renders
 
-| Cornell Box | Glass Spheres | Textured Mesh |
-|-------------|---------------|---------------|
-| ![TDOD](outputs-png/cornell.png) | ![TODO](outputs-png/glass.png) | ![TODO](outputs-png/mesh.png) |
+| Cornell Box | Textured Mesh |
+|-------------|---------------|
+| ![TDOD](outputs-png/cornell.png) | ![TODO](outputs-png/mesh.png) |
 
 ## Future Improvements
 
+- [ ] Next-Event Estimation (light sampling)
 - [ ] Complete hybrid GPU rendering implementation
 - [ ] Additional material models (anisotropic, subsurface scattering, emissive)
 - [ ] Alternative sampling methods
