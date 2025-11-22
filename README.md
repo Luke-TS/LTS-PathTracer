@@ -120,6 +120,8 @@ Images are output to stdout in ppm format.
 
 ## Example Renders
 
+> **Note:** Working to implement Next-Event Estimation to redue noise in Cornell Box render.
+
 | Cornell Box | Textured Mesh |
 |-------------|---------------|
 | ![TDOD](outputs-png/cornell.png) | ![TODO](outputs-png/mesh.png) |
