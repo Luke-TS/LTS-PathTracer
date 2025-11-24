@@ -81,7 +81,7 @@ public:
 
         // normal
         core::Vec3 outward_norm = core::Cross(edge1, edge2);
-        rec.set_face_normal(r, core::Normalize(outward_norm));
+        rec.SetFaceNorm(r, core::Normalize(outward_norm));
 
         return true;
     }
@@ -98,7 +98,7 @@ public:
         return gpu_index;
     }
 
-    virtual void set_object_index(int i) override {
+    virtual void SetObjIndex(int i) override {
         gpu_index = i;
     }
 

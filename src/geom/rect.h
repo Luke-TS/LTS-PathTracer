@@ -32,7 +32,7 @@ public:
         rec.t = t;
 
         core::Vec3 outward_normal = core::Vec3(0, 0, 1);
-        rec.set_face_normal(r, outward_normal);
+        rec.SetFaceNorm(r, outward_normal);
         rec.mat = mat_;
         rec.p = r.at(t);
 
@@ -46,7 +46,7 @@ public:
 
     int TypeId() const override { return HITTABLE_SQUARE; }
     int ObjectIndex() const override { return index_; }
-    void set_object_index(int i) override { index_ = i; }
+    void SetObjIndex(int i) override { index_ = i; }
 
 private:
     std::shared_ptr<material::Material> mat_;
@@ -77,7 +77,7 @@ public:
         rec.t = t;
 
         core::Vec3 outward_normal = core::Vec3(0, 1, 0);
-        rec.set_face_normal(r, outward_normal);
+        rec.SetFaceNorm(r, outward_normal);
         rec.mat = mat_;
         rec.p = r.at(t);
 
@@ -90,7 +90,7 @@ public:
 
     int TypeId() const override { return HITTABLE_SQUARE; }
     int ObjectIndex() const override { return index_; }
-    void set_object_index(int i) override { index_ = i; }
+    void SetObjIndex(int i) override { index_ = i; }
 
 private:
     std::shared_ptr<material::Material> mat_;
@@ -122,7 +122,7 @@ public:
         rec.t = t;
 
         core::Vec3 outward_normal = core::Vec3(1, 0, 0);
-        rec.set_face_normal(r, outward_normal);
+        rec.SetFaceNorm(r, outward_normal);
         rec.mat = mat_;
         rec.p = r.at(t);
 
@@ -135,7 +135,7 @@ public:
 
     int TypeId() const override { return HITTABLE_SQUARE; }
     int ObjectIndex() const override { return index_; }
-    void set_object_index(int i) override { index_ = i; }
+    void SetObjIndex(int i) override { index_ = i; }
 
 private:
     std::shared_ptr<material::Material> mat_;

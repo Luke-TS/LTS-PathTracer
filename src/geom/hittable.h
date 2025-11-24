@@ -1,12 +1,12 @@
 #pragma once
 
+#include <memory>
+
 #include "core/ray.h"
 #include "core/vec3.h"
 #include "core/interval.h"
 
 #include "aabb.h"
-
-#include <memory>
 
 // to solve circular references between material and hittable code
 namespace rt::material {
@@ -28,17 +28,10 @@ public:
     double u; 
     double v;
 
-    void set_face_normal(const core::Ray& r, const core::Vec3& outward_normal) {
-        front_face = core::Dot(r.direction(), outward_normal) < 0;
-        normal = front_face ? outward_normal : -outward_normal;
+    void SetFaceNorm(const core::Ray& r, const core::Vec3& out_norm) {
+        front_face = core::Dot(r.direction(), out_norm) < 0;
+        normal = front_face ? out_norm : -out_norm;
     }
-
-    HitRecord() = default;
-    HitRecord(const HitRecord&) = default;
-    HitRecord(HitRecord&&) = default;
-    HitRecord& operator=(const HitRecord&) = default;   // <-- important
-    HitRecord& operator=(HitRecord&&) = default;        // <-- important
-    ~HitRecord() = default;
 };
 
 // used to identify object type for GPU intersection testing
@@ -58,7 +51,7 @@ public:
 
     virtual int TypeId() const = 0;
     virtual int ObjectIndex() const = 0;
-    virtual void set_object_index(int i) = 0;
+    virtual void SetObjIndex(int i) = 0;
 };
 
 } // namespace rt::geom

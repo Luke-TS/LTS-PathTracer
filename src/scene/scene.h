@@ -67,7 +67,7 @@ class Scene : public geom::Hittable {
   // Unused for Scene
   int TypeId() const override { return -1; }
   int ObjectIndex() const override { return -1; }
-  void set_object_index(int) override {}
+  void SetObjIndex(int) override {}
 
  private:
     geom::Aabb bbox_;

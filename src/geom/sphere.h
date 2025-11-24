@@ -47,7 +47,7 @@ public:
         rec.t = root;
         rec.p = r.at(rec.t);
         core::Vec3 outward_normal = (rec.p - center_) / radius_;
-        rec.set_face_normal(r, outward_normal);
+        rec.SetFaceNorm(r, outward_normal);
         get_sphere_uv(outward_normal, rec.u, rec.v);
         rec.mat = mat_;
 
@@ -66,7 +66,7 @@ public:
         return gpu_index;
     }
 
-    virtual void set_object_index(int i) override {
+    virtual void SetObjIndex(int i) override {
         gpu_index = i;
     }
 

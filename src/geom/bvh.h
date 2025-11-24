@@ -55,7 +55,7 @@ class Bvh : public Hittable {
             prim_indices_[i] = i;
             Aabb b = primitives_[i]->BoundingBox();
             prim_bounds_[i] = b;
-            prim_centroids_[i] = b.center();
+            prim_centroids_[i] = b.Center();
         }
 
         // Build SAH BVH (temporary pointer-based tree)
@@ -64,7 +64,7 @@ class Bvh : public Hittable {
 
         // Flatten into GPU/CPU-friendly nodes_
         nodes_.reserve(2 * n);
-        root_index_ = flatten(*root_build);
+        root_index_ = Flatten(*root_build);
     }
 
     /// Ray intersection (CPU traversal)
@@ -145,7 +145,7 @@ class Bvh : public Hittable {
         std::unique_ptr<BuildNode> left;
         std::unique_ptr<BuildNode> right;
 
-        bool is_leaf() const { return primCount > 0; }
+        bool IsLeaf() const { return primCount > 0; }
     };
 
     std::vector<std::shared_ptr<Hittable>> primitives_;   // actual geometry
@@ -203,8 +203,8 @@ class Bvh : public Hittable {
         }
 
         int axis = centroid_bounds.LongestAxis();
-        double min_c = centroid_bounds.axis_interval(axis).min_;
-        double max_c = centroid_bounds.axis_interval(axis).max_;
+        double min_c = centroid_bounds.AxisInterval(axis).min_;
+        double max_c = centroid_bounds.AxisInterval(axis).max_;
         double extent = max_c - min_c;
 
         if (extent <= 0.0) {
@@ -344,21 +344,21 @@ class Bvh : public Hittable {
     }
 
     // Flatten build nodes into linear array of BvhNodeGPU
-    int flatten(const BuildNode& bnode) {
+    int Flatten(const BuildNode& bnode) {
         int idx = static_cast<int>(nodes_.size());
         nodes_.push_back({});
         BvhNodeGPU& out = nodes_.back();
 
         out.bbox = bnode.bounds;
 
-        if (bnode.is_leaf()) {
+        if (bnode.IsLeaf()) {
             out.isLeaf = 1;
             out.left   = static_cast<uint32_t>(bnode.firstPrim);
             out.right  = static_cast<uint32_t>(bnode.primCount);
         } else {
             out.isLeaf = 0;
-            int left_idx  = flatten(*bnode.left);
-            int right_idx = flatten(*bnode.right);
+            int left_idx  = Flatten(*bnode.left);
+            int right_idx = Flatten(*bnode.right);
             out.left  = static_cast<uint32_t>(left_idx);
             out.right = static_cast<uint32_t>(right_idx);
         }
