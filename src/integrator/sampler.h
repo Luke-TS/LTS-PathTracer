@@ -11,6 +11,8 @@
 
 namespace rt::integrator {
 
+// Sampler classes for megakernel renderer
+
 class Sampler {
 public:
     virtual ~Sampler() = default;

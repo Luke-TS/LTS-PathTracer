@@ -28,19 +28,6 @@ public:
 
             rec.hit = ok;
 
-            /*
-            if (ok) {
-                hi.t      = rec.t;
-                hi.p      = rec.p;
-                hi.normal = rec.normal;
-                hi.mat    = rec.mat.get();
-
-                hi.u          = rec.u;
-                hi.v          = rec.v;
-                hi.front_face = rec.front_face;
-            }
-            */
-
             hits[i] = rec;
         }
     }

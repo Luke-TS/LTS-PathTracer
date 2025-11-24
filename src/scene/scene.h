@@ -7,70 +7,31 @@
 #include "core/interval.h"
 
 #include "geom/aabb.h"
-#include "geom/aabb.h"
 #include "geom/hittable.h"
 
 namespace rt::scene {
 
 class Scene : public geom::Hittable {
- public:
-  std::vector<std::shared_ptr<rt::geom::Hittable>> objects_;
+public:
+    Scene();
+    explicit Scene(std::shared_ptr<geom::Hittable> object);
 
-  Scene() = default;
+    void Add(const std::shared_ptr<geom::Hittable>& object);
+    void Clear();
 
-  explicit Scene(std::shared_ptr<geom::Hittable> object) {
-    Add(object);
-  }
+    const std::vector<std::shared_ptr<geom::Hittable>>& Objects() const;
 
-  // Add an object to the scene
-  void Add(const std::shared_ptr<geom::Hittable>& object) {
-    if (!object) return;
+    // Hittable interface
+    bool Hit(const core::Ray& r, core::Interval ray_t, geom::HitRecord& rec) const override;
+    geom::Aabb BoundingBox() const override;
 
-    objects_.push_back(object);
+    int TypeId() const override;
+    int ObjectIndex() const override;
+    void SetObjIndex(int) override;
 
-    // Update bounding box
-    bbox_ = geom::Aabb(bbox_, object->BoundingBox());
-  }
-
-  // Remove all objects
-  void Clear() {
-    objects_.clear();
-    bbox_ = geom::Aabb();  // reset to empty box (assuming default is empty)
-  }
-
-  // Access to scene objects
-  const std::vector<std::shared_ptr<geom::Hittable>>& Objects() const {
-    return objects_;
-  }
-
-  // Hittable interface
-  bool Hit(const core::Ray& r, core::Interval ray_t, geom::HitRecord& rec) const override {
-    geom::HitRecord temp_rec;
-    bool hit_anything = false;
-    auto closest_so_far = ray_t.max_;
-
-    for (const auto& object : objects_) {
-      if (object->Hit(r, core::Interval(ray_t.min_, closest_so_far), temp_rec)) {
-        hit_anything = true;
-        closest_so_far = temp_rec.t;
-        rec = temp_rec;
-      }
-    }
-
-    return hit_anything;
-  }
-
-    geom::Aabb BoundingBox() const override {
-    return bbox_;
-  }
-
-  // Unused for Scene
-  int TypeId() const override { return -1; }
-  int ObjectIndex() const override { return -1; }
-  void SetObjIndex(int) override {}
-
- private:
+private:
+    std::vector<std::shared_ptr<geom::Hittable>> objects_;
     geom::Aabb bbox_;
 };
 
-}  // namespace rt::scene
+} // namespace rt::scene
