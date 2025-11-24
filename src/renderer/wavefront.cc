@@ -238,7 +238,7 @@ void WavefrontRenderer::Render() {
     std::cout << "P3\n" << width << ' ' << height << "\n255\n";
     for (int j = 0; j < height; ++j)
         for (int i = 0; i < width; ++i)
-            write_color(std::cout, framebuffer[j * width + i]);
+            WriteColor(std::cout, framebuffer[j * width + i]);
 }
 
 } // namespace rt::renderer

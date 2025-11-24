@@ -47,7 +47,7 @@ public:
 
         std::cout << "P3\n" << width << ' ' << height << "\n255\n";
         for( auto& c: framebuffer ) {
-            write_color(std::cout, c); 
+            WriteColor(std::cout, c); 
         }
 
         std::clog << "\rDone. Total samples: " << total_samples << "Per pixel: " << total_samples / (width * height) <<"\n";

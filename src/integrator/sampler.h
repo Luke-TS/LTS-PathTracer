@@ -60,10 +60,10 @@ public:
 
             if( samples >= min_samples_ ) {
                 core::Color mean = sum / samples;
-                double mean_luminance = luminance(mean);
+                double mean_luminance = Luminance(mean);
 
                 core::Color variance = (sum_sq / samples) - (mean * mean);
-                double error = sqrt(luminance(variance) / samples);
+                double error = sqrt(Luminance(variance) / samples);
 
                 // using relative error
                 if( (error / (mean_luminance + 1e-3f)) < threshold_ ) {
