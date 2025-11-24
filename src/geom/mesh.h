@@ -1,18 +1,18 @@
 #pragma once
 
-#include "hittable.h"
-#include "scene/scene.h"
-#include "triangle.h"
-
 #include <memory>
 #include <vector>
 #include <array>
+
+#include "hittable.h"
+#include "scene/scene.h"
+#include "triangle.h"
 
 namespace rt::geom {
 
 class Mesh : public Hittable {
 public:
-    scene::Scene tris;
+    scene::Scene tris_;
 
     Mesh(const std::vector<core::Point3>& vertices,
                   const std::vector<std::array<int,3>>& indices,
@@ -24,16 +24,16 @@ public:
                 vertices[face[2]],
                 mat
             );
-            tris.Add(tri);
+            tris_.Add(tri);
         }
     }
 
     virtual bool Hit(const core::Ray& r, core::Interval ray_t, HitRecord& rec) const override {
-        return tris.Hit(r, ray_t, rec);
+        return tris_.Hit(r, ray_t, rec);
     }
 
     virtual Aabb BoundingBox() const override {
-        return tris.BoundingBox();
+        return tris_.BoundingBox();
     }
 };
 
