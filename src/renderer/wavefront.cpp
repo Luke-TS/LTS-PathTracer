@@ -1,7 +1,7 @@
 #include "renderer/wavefront.h"
 
 #include "material/material.h"
-#include "math_utils.h"
+#include "core/math_utils.h"
 #include "scene/scene.h"
 #include "scene/camera.h"
 #include "geom/hittable.h"

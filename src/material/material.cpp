@@ -5,6 +5,7 @@
 #include "core/math_utils.h"
 #include "texture.h"
 
+#include <algorithm>
 #include <cmath>
 
 namespace rt::material {

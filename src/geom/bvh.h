@@ -34,7 +34,7 @@ class Bvh : public Hittable {
     Bvh(Mesh& mesh);
 
     // Construct from explicit list of objects
-    Bvh(std::vector<std::shared_ptr<Hittable>>& objects);
+    Bvh(const std::vector<std::shared_ptr<Hittable>>& objects);
 
     /// Ray intersection (CPU traversal)
     bool Hit(const core::Ray& r, core::Interval ray_t, HitRecord& rec) const override;

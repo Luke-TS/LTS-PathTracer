@@ -1,7 +1,7 @@
 {
   "default": {
     "aspectRatio": 1.777,
-    "imageWidth": 1500,
+    "imageWidth": 800,
     "samplesPerPixel": 150,
     "maxDepth": 50,
 

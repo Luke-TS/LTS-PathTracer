@@ -1,6 +1,6 @@
 #pragma once
 
-#include "constants.h"
+#include "core/constants.h"
 #include "core/interval.h"
 #include "core/vec3.h"
 #include "hittable.h"

@@ -3,14 +3,14 @@
 namespace rt::geom {
 
 Bvh::Bvh(scene::Scene& scene)
-: Bvh(scene.objects_) {}
+: Bvh(scene.Objects()) {}
 
 // Construct from a mesh (triangle list)
 Bvh::Bvh(Mesh& mesh)
-: Bvh(mesh.tris) {}
+: Bvh(mesh.tris_) {}
 
 // Construct from explicit list of objects
-Bvh::Bvh(std::vector<std::shared_ptr<Hittable>>& objects)
+Bvh::Bvh(const std::vector<std::shared_ptr<Hittable>>& objects)
 {
     if (objects.empty()) {
         root_index_ = -1;
