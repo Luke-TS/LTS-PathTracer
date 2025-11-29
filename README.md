@@ -2,7 +2,7 @@
 
 A modern physically-based Monte Carlo ray tracer written in C++.
 
-![Sample Render](outputs-png/sample_render.png)
+![Sample Render](assets/outputs-png/sample_render.png)
 *Sample scene showcasing spheres with dielectric, specular, and diffuse materials*
 
 ## Features
