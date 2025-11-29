@@ -125,7 +125,7 @@ Support outputs: png, ppm
 
 | Cornell Box | Textured Mesh |
 |-------------|---------------|
-| ![TDOD](outputs-png/cornell.png) | ![TODO](outputs-png/mesh.png) |
+| ![TDOD](assets/outputs-png/cornell.png) | ![TODO](outputs-png/mesh.png) |
 
 
 ## References
