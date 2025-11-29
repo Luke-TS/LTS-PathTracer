@@ -1,0 +1,34 @@
+{
+  "camera": {
+    "aspectRatio": 1.777,
+    "imageWidth": 800,
+    "samplesPerPixel": 200,
+    "maxDepth": 10,
+
+    "vfov": 40,
+
+    "lookfrom": [4.0, 2.0, 6.0],
+    "lookat":   [0.0, 0.0, 0.0],
+    "vup":      [0.0, 1.0, 0.0],
+
+    "defocusAngle": 0.0,
+    "focusDist": 6.0
+  },
+
+  "textures": {
+    "earth_map": { "type": "image", "path": "earthmap.jpg" }
+  },
+
+  "materials": {
+    "earth_surface": { "type": "lambertian", "texture": "earth_map" }
+  },
+
+  "objects": [
+    { "type": "sphere",
+      "center": [0,0,0],
+      "radius": 2.0,
+      "material": "earth_surface"
+    }
+  ]
+}
+

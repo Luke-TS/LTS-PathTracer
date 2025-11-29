@@ -3,6 +3,8 @@
 #include <cmath>
 
 #include "constants.h"
+#include "core/mat4.h"
+#include "core/ray.h"
 #include "random.h" 
 #include "vec3.h"
 
@@ -75,6 +77,13 @@ inline Vec3 Normalize(const Vec3& v) {
   double len = v.length();
   if (len == 0.0) return Vec3(0, 0, 0);
   return v / len;
+}
+
+inline Ray TransformRay(const Ray& r, const Mat4& M) {
+    Vec3 new_origin = M * r.origin();
+    Vec3 new_dir    = M.TransformDirection(r.direction());
+
+    return Ray(new_origin, new_dir);
 }
 
 // Cosine-weighted hemisphere direction about a normal

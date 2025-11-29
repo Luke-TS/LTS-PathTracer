@@ -40,7 +40,7 @@ core::Color CheckerTexture::Value(double u, double v, const core::Point3& p) con
 
 // ======================= ImageTexture =======================
 
-ImageTexture::ImageTexture(const char* filename)
+ImageTexture::ImageTexture(std::string filename)
     : image_(filename) {}
 
 core::Color ImageTexture::Value(double u, double v, const core::Point3& p) const {

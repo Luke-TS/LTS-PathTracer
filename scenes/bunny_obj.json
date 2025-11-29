@@ -1,0 +1,32 @@
+{
+  "camera": {
+    "aspectRatio": 1.0,
+    "imageWidth": 800,
+    "samplesPerPixel": 50,
+    "maxDepth": 15,
+    "vfov": 40,
+
+    "lookfrom": [0, 2, 6],
+    "lookat":   [0, 0.5, 0],
+    "vup":      [0,1,0],
+
+    "defocusAngle": 0.0,
+    "focusDist": 6.0
+  },
+
+  "materials": {
+    "white": { "type": "lambertian", "albedo": [0.75, 0.75, 0.75] }
+  },
+
+  "objects": [
+    {
+      "type": "mesh",
+      "file": "stanford-bunny.obj",
+      "material": "white",
+      "scale": 50.0,
+      "translate": [0,0,0],
+      "rotateY": 180.0
+    }
+  ]
+}
+

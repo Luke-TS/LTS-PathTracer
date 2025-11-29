@@ -1,0 +1,51 @@
+{
+  "camera": {
+    "aspectRatio": 1.777,
+    "imageWidth": 600,
+    "samplesPerPixel": 100,
+    "maxDepth": 25,
+
+    "vfov": 40,
+
+    "lookfrom": [-4,2,8],
+    "lookat":   [0,0,0],
+    "vup":      [0,1,0]
+  },
+
+  "textures": {
+    "earth_map": {
+      "type": "image",
+      "path": "earthmap.jpg"
+    },
+    "checker": {
+      "type": "checker",
+      "scale": 0.32,
+      "color1": [0.2, 0.3, 0.1],
+      "color2": [0.9, 0.9, 0.9]
+    }
+  },
+
+  "materials": {
+    "earth": { "type": "lambertian", "texture": "earth_map" },
+
+    "left": { "type": "lambertian", "albedo": [0.1, 0.2, 0.5] },
+    "center":   { "type": "dielectric", "ior": 1.5 },
+    "bubble": { "type": "dielectric", "ior": 0.666 },
+
+    "right":  { "type": "metal", "albedo": [0.8, 0.6, 0.2], "fuzz": 1.0 },
+
+    "checker_mat": { "type": "lambertian", "texture": "checker" }
+  },
+
+  "objects": [
+    { "type": "sphere", "center":[0.0,-1000.0,0.0], "radius":1000.0, "material":"checker_mat" },
+
+    { "type": "sphere", "center":[0,1,0], "radius":1.0, "material":"left" },
+
+    { "type": "sphere", "center":[-3,1,0], "radius":1.0, "material":"center" },
+    { "type": "sphere", "center":[-3,1,0], "radius":0.8, "material":"center" },
+
+    { "type": "sphere", "center":[3,1,0], "radius":1.0, "material":"right" }
+  ]
+}
+

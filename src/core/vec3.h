@@ -2,13 +2,19 @@
 
 #include <cmath>
 #include <iostream>
+#include <vector>
 
 namespace rt::core {
 
 class Vec3 {
  public:
   constexpr Vec3() : e_{0, 0, 0} {}
-  constexpr Vec3(double x, double y, double z) : e_{x, y, z} {}
+    constexpr Vec3(double x, double y, double z) : e_{x, y, z} {}
+    constexpr Vec3(const std::vector<double>& v) : e_{0, 0, 0} {
+        e_[0] = v[0];
+        e_[1] = v[1];
+        e_[2] = v[2];
+    }
 
   // Accessors
   constexpr double x() const { return e_[0]; }

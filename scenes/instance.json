@@ -1,0 +1,51 @@
+{
+  "camera": {
+    "aspectRatio": 1.0,
+    "imageWidth": 600,
+    "samplesPerPixel": 200,
+    "maxDepth": 10,
+    "vfov": 35,
+
+    "lookfrom": [4,2,6],
+    "lookat":   [0,1,0],
+    "vup":      [0,1,0]
+  },
+
+  "materials": {
+    "white": { "type": "lambertian", "albedo":[0.8,0.8,0.8] },
+    "red":   { "type": "lambertian", "albedo": [0.65, 0.05, 0.05] }
+  },
+
+  "meshes": {
+    "bunny": {
+      "file": "stanford-bunny.obj",
+      "material": "red",
+      "normalize": true,
+      "unitScale": 1.0
+    }
+  },
+
+  "objects": [
+    {
+      "type": "instance",
+      "instanceOf": "bunny",
+      "translate": [0,0,0],
+      "scale": 1.0
+    },
+    {
+      "type": "instance",
+      "instanceOf": "bunny",
+      "translate": [2,0,0],
+      "rotateY": 45,
+      "scale": 0.5
+    },
+    {
+      "type": "instance",
+      "instanceOf": "bunny",
+      "translate": [-2,0,0],
+      "rotateY": -30,
+      "scale": 1.5
+    }
+  ]
+}
+

@@ -70,3 +70,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE
 target_compile_definitions(${PROJECT_NAME} PUBLIC
     IMAGE_DIR="${CMAKE_SOURCE_DIR}/assets/textures"
 )
+
+target_compile_definitions(${PROJECT_NAME} PUBLIC
+    MODEL_DIR="${CMAKE_SOURCE_DIR}/assets/models"
+)

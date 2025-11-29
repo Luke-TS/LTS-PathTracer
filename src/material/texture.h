@@ -46,7 +46,7 @@ private:
 
 class ImageTexture : public Texture {
 public:
-    explicit ImageTexture(const char* filename);
+    explicit ImageTexture(std::string filename);
 
     core::Color Value(double u, double v, const core::Point3& p) const override;
 
