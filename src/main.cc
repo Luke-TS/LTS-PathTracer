@@ -158,6 +158,7 @@ int main(int argc, char** argv) {
     core::Timer clock;
     clock.reset();
 
+    // grab camera configuration(s) from current directory
     auto cameras = scene::loadCameras("cameras.json");
 
     std::string active = "default";
@@ -169,9 +170,8 @@ int main(int argc, char** argv) {
         std::cerr << "Camera '" << active << "' not found. Using default.\n";
         active = "default";
     }
-    scene::ColorCamera cam;
+    scene::Camera cam;
     cam.SetFromConfig(cameras[active]);
-    cam.Initialize();
 
     scene::Scene world;
     switch(4) {

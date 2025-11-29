@@ -54,11 +54,10 @@ public:
     double focus_dist_ = 10;
 
     void SetFromConfig(const CameraConfig& cfg);
-    void Initialize();
 
-    virtual core::Ray GetRay(int i, int j) const;
+    core::Ray GetRay(int i, int j) const;
 
-    virtual core::Color GetPixel(const core::Ray& r, int depth, const geom::Hittable& world) const;
+    core::Color GetPixel(const core::Ray& r, int depth, const geom::Hittable& world) const;
 
     int get_image_height() const { return image_height_; }
     int get_image_width() const { return image_width_; }
@@ -73,18 +72,9 @@ protected:
     core::Vec3 defocus_disk_u_;
     core::Vec3 defocus_disk_v_;
 
+    void Initialize();
     core::Point3 defocus_disk_sample() const;
     core::Vec3 SampleSquare() const;
-};
-
-class ColorCamera : public Camera {};
-
-class DepthCamera : public Camera {
-public:
-    virtual core::Color GetPixel(const core::Ray& r, int depth, const geom::Hittable& world) const override;
-
-private:
-    int max_dist_ = 20;
 };
 
 } // namespace rt::scene

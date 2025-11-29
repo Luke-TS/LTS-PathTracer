@@ -52,6 +52,8 @@ void Camera::SetFromConfig(const CameraConfig& cfg) {
 
     defocus_angle_ = cfg.defocus_angle;
     focus_dist_ = cfg.focus_dist;
+
+    Initialize();
 }
 
 void Camera::Initialize() {
@@ -125,24 +127,6 @@ core::Color Camera::GetPixel(const core::Ray& r, int depth, const geom::Hittable
     core::Vec3 unit_direction = core::Normalize(r.direction());
     auto a = 0.5 * (unit_direction.y() + 1.0);
     return (1.0 - a)*core::Color(1.0,1.0,1.0) + a*core::Color(0.5,0.7,1.0);
-}
-
-// -----------------------------------------------------------------------------
-// DEPTH CAMERA
-// -----------------------------------------------------------------------------
-
-core::Color DepthCamera::GetPixel(const core::Ray& r, int depth, const geom::Hittable& world) const {
-    if (depth <= 0)
-        return core::Color(0,0,0);
-
-    geom::HitRecord rec;
-    core::Ray r_norm(r.origin(), core::Normalize(r.direction()));
-
-    if (world.Hit(r_norm, core::Interval(0.001, core::kInfinity), rec)) {
-        return core::Color(rec.t < max_dist_ ? rec.t : 0, 0, 0);
-    }
-
-    return core::Color(0,0,0);
 }
 
 } // namespace rt::scene

@@ -12,7 +12,7 @@ set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 set(CMAKE_CUDA_SEPARABLE_COMPILATION ON)
 set(CMAKE_CUDA_ARCHITECTURES native CACHE STRING "GPU arch")
 
-# Always export compile_commands.json for clangd
+# Always export compile_commands.json for clangd lsp
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # ───────────────── Source Collection ─
@@ -66,22 +66,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE
     $<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler=-Wall -Xcompiler=-Wextra>
 )
 
-# ────────── Multi-Config Output Layout ──
-# This puts executables in build/debug or build/release
-set_target_properties(${PROJECT_NAME} PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY_DEBUG   "${CMAKE_BINARY_DIR}"
-    RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}"
-    RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "${CMAKE_BINARY_DIR}/relwithdebinfo"
-    RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "${CMAKE_BINARY_DIR}/minsizerel"
-)
-
-add_custom_target(copy-compile-commands ALL
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            ${CMAKE_BINARY_DIR}/compile_commands.json
-            ${CMAKE_SOURCE_DIR}/compile_commands.json
-)
-
 # ─────── Asset Directory Macro ──────────
 target_compile_definitions(${PROJECT_NAME} PUBLIC
-    IMAGE_DIR="${CMAKE_SOURCE_DIR}/textures"
+    IMAGE_DIR="${CMAKE_SOURCE_DIR}/assets/textures"
 )
