@@ -1,0 +1,99 @@
+{
+    "camera": {
+        "aspectRatio": 1.5,
+        "imageWidth": 1000,
+        "samplesPerPixel": 150,
+        "maxDepth": 50,
+
+        "vfov": 60.0,
+
+        "lookfrom": [5, 6, -6],
+        "lookat":   [5, 5, 5],
+        "vup":      [0.0, 1.0, 0.0],
+
+        "defocusAngle": 0.0,
+        "focusDist": 11.0
+    },
+
+    "materials": {
+        "red":   { "type": "lambertian", "albedo": [0.65, 0.05, 0.05] },
+        "white": { "type": "lambertian", "albedo": [0.73, 0.73, 0.73] },
+        "green": { "type": "lambertian", "albedo": [0.12, 0.45, 0.15] },
+        "light": { "type": "diffuse_light", "color": [15.0, 15.0, 15.0] },
+
+        "glass":   { "type": "dielectric", "ior": 1.5 },
+        "metal":   { "type": "metal", "albedo": [0.85,0.85,0.95], "fuzz": 0.03 },
+        "orange":  { "type": "lambertian", "albedo": [0.8, 0.3, 0.1] }
+    },
+
+    "meshes": {
+        "bunny": {
+            "file": "stanford-bunny.obj",
+            "material": "red",
+            "normalize": true,
+            "unitScale": 1.0
+        }
+    },
+
+    "objects": [
+        {
+            "type": "quad",
+            "p1": [0,0,0],
+            "p2": [0,10,0],
+            "p3": [0,10,10],
+            "p4": [0,0,10],
+            "material": "red"
+        },
+        {
+            "type": "quad",
+            "p1": [10,0,10],
+            "p2": [10,10,10],
+            "p3": [10,10,0],
+            "p4": [10,0,0],
+            "material": "green"
+        },
+        {
+            "type": "quad",
+            "p1": [0,0,0],
+            "p2": [10,0,0],
+            "p3": [10,0,10],
+            "p4": [0,0,10],
+            "material": "white"
+        },
+        {
+            "type": "quad",
+            "p1": [0,10,10],
+            "p2": [10,10,10],
+            "p3": [10,10,0],
+            "p4": [0,10,0],
+            "material": "white"
+        },
+        {
+            "type": "quad",
+            "p1": [0,0,10],
+            "p2": [0,10,10],
+            "p3": [10,10,10],
+            "p4": [10,0,10],
+            "material": "white"
+        },
+        {
+            "type": "quad",
+            "p1": [3,9.99,3],
+            "p2": [7,9.99,3],
+            "p3": [7,9.99,7],
+            "p4": [3,9.99,7],
+            "material": "light"
+        },
+
+        { "type":"sphere", "center":[3.2,1.0,7.0], "radius":1.0, "material":"orange" },
+        { "type":"sphere", "center":[7.0,1.0,4.0], "radius":1.0, "material":"metal" },
+        { "type":"sphere", "center":[5.0,1.0,2.5], "radius":1.0, "material":"glass" },
+        {
+            "type": "instance",
+            "instanceOf": "bunny",
+            "translate": [3.2,2.0,7.0],
+            "scale": 1.0
+        }
+    ]
+}
+

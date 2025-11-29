@@ -1,3 +1,4 @@
+#include "geom/quad.h"
 #include "scene/scene_loader.h"
 
 #include <fstream>
@@ -5,7 +6,7 @@
 #include <tiny_obj_loader.h>
 
 #include "geom/sphere.h"
-#include "geom/rect.h"
+#include "geom/quad.h"
 #include "geom/triangle.h"
 #include "geom/bvh.h"
 #include "geom/instance.h"
@@ -17,15 +18,9 @@ using json = nlohmann::json;
 
 namespace rt::scene {
 
-// --------------------------------------------------
-// GLOBAL MESH CACHE
-// --------------------------------------------------
+// global mesh cache
 static std::unordered_map<std::string, std::shared_ptr<geom::Hittable>> mesh_cache;
 
-
-// --------------------------------------------------
-// UTILITY HELPERS
-// --------------------------------------------------
 static core::Color readColor(const json& j) {
     return core::Color(j[0], j[1], j[2]);
 }
@@ -38,10 +33,6 @@ static core::Point3 readPoint3(const json& j) {
     return core::Point3(j[0], j[1], j[2]);
 }
 
-
-// --------------------------------------------------
-// MATERIAL FACTORY
-// --------------------------------------------------
 static std::shared_ptr<material::Material>
 makeMaterial(const std::string& name, const json& m,
              const std::unordered_map<std::string, 
@@ -74,10 +65,6 @@ makeMaterial(const std::string& name, const json& m,
     throw std::runtime_error("Unknown material: " + type);
 }
 
-
-// --------------------------------------------------
-// TEXTURE FACTORY
-// --------------------------------------------------
 static std::shared_ptr<material::Texture>
 makeTexture(const std::string& name, const json& t)
 {
@@ -98,10 +85,7 @@ makeTexture(const std::string& name, const json& t)
     throw std::runtime_error("Unknown texture: " + type);
 }
 
-
-// --------------------------------------------------
-// MESH LOADER (NO INSTANCING YET) + NORMALIZATION
-// --------------------------------------------------
+// mesh loader
 static std::shared_ptr<geom::Hittable>
 loadMeshOBJ(const std::string& path,
             std::shared_ptr<material::Material> mat,
@@ -168,7 +152,7 @@ loadMeshOBJ(const std::string& path,
         }
     }
 
-    // Normalize to unit cube (optional)
+    // Normalize to unit cube
     if (normalize) {
         core::Vec3 ext = bb_max - bb_min;
         double maxd = std::max({ext.x(), ext.y(), ext.z()});
@@ -201,9 +185,7 @@ loadMeshOBJ(const std::string& path,
 }
 
 
-// --------------------------------------------------
-// TRANSFORM HELPERS (Translate/RotateY/Scale)
-// --------------------------------------------------
+// transform helpers
 static core::Mat4 ComposeTransform(const core::Vec3& translate,
                                    double rotateY_deg,
                                    double scale)
@@ -214,10 +196,6 @@ static core::Mat4 ComposeTransform(const core::Vec3& translate,
     return T * R * S;
 }
 
-
-// --------------------------------------------------
-// OBJECT FACTORY
-// --------------------------------------------------
 static std::shared_ptr<geom::Hittable>
 makeObject(const json& obj,
            const std::unordered_map<std::string, 
@@ -225,9 +203,6 @@ makeObject(const json& obj,
 {
     std::string type = obj.at("type");
 
-    // ---------------------------------------------
-    // SPHERE
-    // ---------------------------------------------
     if (type == "sphere") {
         core::Point3 c = readPoint3(obj.at("center"));
         double r = obj.at("radius");
@@ -235,39 +210,16 @@ makeObject(const json& obj,
         return std::make_shared<geom::Sphere>(c, r, m);
     }
 
-    // ---------------------------------------------
-    // RECTANGLES
-    // ---------------------------------------------
-    if (type == "xz_rect") {
-        return std::make_shared<geom::xz_rect>(
-            obj.at("x0"), obj.at("x1"),
-            obj.at("z0"), obj.at("z1"),
-            obj.at("y"),
+    if (type == "quad") {
+        return std::make_shared<geom::Quad>(
+            obj.value("p1", std::vector<double>{0,0,0}),
+            obj.value("p2", std::vector<double>{0,0,0}),
+            obj.value("p3", std::vector<double>{0,0,0}),
+            obj.value("p4", std::vector<double>{0,0,0}),
             mats.at(obj.at("material"))
         );
     }
 
-    if (type == "xy_rect") {
-        return std::make_shared<geom::xy_rect>(
-            obj.at("x0"), obj.at("x1"),
-            obj.at("y0"), obj.at("y1"),
-            obj.at("z"),
-            mats.at(obj.at("material"))
-        );
-    }
-
-    if (type == "yz_rect") {
-        return std::make_shared<geom::yz_rect>(
-            obj.at("y0"), obj.at("y1"),
-            obj.at("z0"), obj.at("z1"),
-            obj.at("x"),
-            mats.at(obj.at("material"))
-        );
-    }
-
-    // ---------------------------------------------
-    // INSTANCING
-    // ---------------------------------------------
     if (type == "instance") {
         std::string key = obj.at("instanceOf");
         auto base = mesh_cache.at(key);
@@ -285,10 +237,6 @@ makeObject(const json& obj,
     throw std::runtime_error("Unknown object type: " + type);
 }
 
-
-// --------------------------------------------------
-// MAIN LOAD FUNCTION
-// --------------------------------------------------
 SceneLoadResult SceneLoader::LoadFromJSON(const std::string& path)
 {
     std::ifstream f(path);
@@ -297,14 +245,9 @@ SceneLoadResult SceneLoader::LoadFromJSON(const std::string& path)
 
     json j = json::parse(f);
 
-    // -------------------
-    // CAMERA
-    // -------------------
     CameraConfig cam_cfg = parseCamera(j.at("camera"));
 
-    // -------------------
     // TEXTURES
-    // -------------------
     std::unordered_map<std::string, std::shared_ptr<material::Texture>> textures;
     if (j.contains("textures")) {
         for (auto& [name, def] : j["textures"].items()) {
@@ -312,17 +255,13 @@ SceneLoadResult SceneLoader::LoadFromJSON(const std::string& path)
         }
     }
 
-    // -------------------
     // MATERIALS
-    // -------------------
     std::unordered_map<std::string, std::shared_ptr<material::Material>> mats;
     for (auto& [name, def] : j.at("materials").items()) {
         mats[name] = makeMaterial(name, def, textures);
     }
 
-    // -------------------
     // MESHES
-    // -------------------
     if (j.contains("meshes")) {
         for (auto& [name, def] : j["meshes"].items()) {
             mesh_cache[name] = loadMeshOBJ(
@@ -334,17 +273,13 @@ SceneLoadResult SceneLoader::LoadFromJSON(const std::string& path)
         }
     }
 
-    // -------------------
     // OBJECTS
-    // -------------------
     Scene world;
     for (auto& obj : j.at("objects")) {
         world.Add(makeObject(obj, mats));
     }
 
-    // -------------------
     // TOP-LEVEL BVH
-    // -------------------
     Scene final;
     final.Add(std::make_shared<geom::Bvh>(world));
 
