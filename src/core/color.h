@@ -2,12 +2,13 @@
 
 #include "interval.h"
 #include "vec3.h"
+#include <algorithm>
 
 namespace rt::core {
 
 using Color = Vec3;
 
-inline double LinearToGamma(double linear_component) {
+inline float LinearToGamma(double linear_component) {
     if( linear_component > 0 ) {
         return std::sqrt(linear_component);
     }
@@ -15,21 +16,9 @@ inline double LinearToGamma(double linear_component) {
     return 0;
 }
 
-inline void WriteColor(std::ostream& out, const Color& pixel_color) {
-    auto r = pixel_color[0];
-    auto g = pixel_color[1];
-    auto b = pixel_color[2];
-
-    r = LinearToGamma(r);
-    g = LinearToGamma(g);
-    b = LinearToGamma(b);
-
-    static const Interval intensity(0.000, 0.999);
-    int rbyte = int(256 * intensity.Clamp(r));
-    int gbyte = int(256 * intensity.Clamp(g));
-    int bbyte = int(256 * intensity.Clamp(b));
-
-    out << rbyte << ' ' << gbyte << ' ' << bbyte << '\n';
+inline unsigned char FloatToByte(float x) {
+    x = std::clamp(LinearToGamma(x), 0.0f, 0.999f);
+    return static_cast<unsigned char>(256.f * x);
 }
 
 inline double Luminance(const Color& c) {

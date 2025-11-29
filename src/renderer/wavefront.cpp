@@ -1,7 +1,10 @@
 #include "renderer/wavefront.h"
 
+#include "integrator/pixel_state.h"
+#include "integrator/ray_state.h"
 #include "material/material.h"
 #include "core/math_utils.h"
+#include "renderer/framebuffer.h"
 #include "scene/scene.h"
 #include "scene/camera.h"
 #include "geom/hittable.h"
@@ -37,7 +40,7 @@ core::Color WavefrontRenderer::background(const core::Ray& r) {
          + t         * core::Color(0.5, 0.7, 1.0);
 }
 
-void WavefrontRenderer::Render() {
+Framebuffer WavefrontRenderer::Render() {
 
     const float kRelThresh  = 0.05;  // Adaptive threshold
     const int   kMinSamples = 16;
@@ -47,7 +50,7 @@ void WavefrontRenderer::Render() {
     const int npix   = width * height;
 
     std::vector<integrator::PixelState> pixels(npix);
-    std::vector<core::Color> framebuffer(npix);
+    Framebuffer framebuffer(width, height);
 
     std::vector<integrator::RayState> ray_queue;
     std::vector<integrator::RayState> next_ray_queue;
@@ -227,18 +230,10 @@ void WavefrontRenderer::Render() {
 
     // Write framebuffer
     for (int i = 0; i < npix; i++) {
-        if (pixels[i].samples > 0)
-            framebuffer[i] =
-                pixels[i].sum / (float)pixels[i].samples;
-        else
-            framebuffer[i] = core::Color(0,0,0);
+        framebuffer.SetPixel(i, pixels[i].sum / (float)pixels[i].samples);
     }
 
-    // Output PPM
-    std::cout << "P3\n" << width << ' ' << height << "\n255\n";
-    for (int j = 0; j < height; ++j)
-        for (int i = 0; i < width; ++i)
-            WriteColor(std::cout, framebuffer[j * width + i]);
+    return framebuffer;
 }
 
 } // namespace rt::renderer

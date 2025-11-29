@@ -1,9 +1,9 @@
 {
     "camera": {
         "aspectRatio": 1.5,
-        "imageWidth": 1000,
-        "samplesPerPixel": 150,
-        "maxDepth": 50,
+        "imageWidth": 800,
+        "samplesPerPixel": 50,
+        "maxDepth": 20,
 
         "vfov": 60.0,
 
@@ -19,7 +19,7 @@
         "red":   { "type": "lambertian", "albedo": [0.65, 0.05, 0.05] },
         "white": { "type": "lambertian", "albedo": [0.73, 0.73, 0.73] },
         "green": { "type": "lambertian", "albedo": [0.12, 0.45, 0.15] },
-        "light": { "type": "diffuse_light", "color": [15.0, 15.0, 15.0] },
+        "light": { "type": "diffuse_light", "color": [10.0, 10.0, 10.0] },
 
         "glass":   { "type": "dielectric", "ior": 1.5 },
         "metal":   { "type": "metal", "albedo": [0.85,0.85,0.95], "fuzz": 0.03 },

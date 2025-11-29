@@ -1,26 +1,30 @@
-#include "scene/camera.h"
-#include "scene/scene.h"
+#include <iostream>
+#include <iomanip>
 #include "core/timer.h"
-#include "renderer/wavefront.h"
 #include "integrator/cpu_ray_integrator.h"
 #include "scene/scene_loader.h"
-
-#include <iomanip>
-#include <iostream>
-#include <ostream>
+#include "scene/camera.h"
+#include "renderer/wavefront.h"
+#include "renderer/framebuffer.h"
 
 using namespace rt;
 
 int main(int argc, char** argv) {
-    core::Timer clock;
-    clock.reset();
-
-    std::string scene_file = "scene.json";
-    if (argc > 1) {
-        scene_file = argv[1];
+    if (argc < 2) {
+        std::clog << "Usage: ./ray_tracer <scene.json> [output_file.ext]\n"
+                  << "  Example: ./ray_tracer scenes/cornell.json output.png\n"
+                  << "  Supported formats: .png .ppm\n";
+        return 1;
     }
 
+    std::string scene_file  = argv[1];
+    std::string output_file = "output.png";      // default
+
+    if (argc >= 3)
+        output_file = argv[2];
+
     std::clog << "Loading scene: " << scene_file << "\n";
+    std::clog << "Output file:   " << output_file << "\n";
 
     scene::SceneLoadResult loaded;
     try {
@@ -31,36 +35,38 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    // Unpack scene + camera
+    // Scene + camera
     rt::scene::Scene world = loaded.world;
     rt::scene::CameraConfig cam_cfg = loaded.camera;
 
-    // Set up camera
     rt::scene::Camera cam;
     cam.SetFromConfig(cam_cfg);
 
-    // Set up integrators & renderer
-    integrator::CPURayIntegrator integrator(&world);
+    core::Timer clock;
+    clock.reset();
 
-    int samples = cam.samples_per_pixel_;
-    int max_depth = cam.max_depth_;
+    integrator::CPURayIntegrator integrator(&world);
 
     renderer::WavefrontRenderer renderer(
         world,
         cam,
         integrator,
-        max_depth,
-        samples,
-        2 * 8192 // wavefront batch size
+        cam.max_depth_,
+        cam.samples_per_pixel_,
+        2 * 8192  // wavefront batch size
     );
 
-    // Render
-    renderer.Render();
+    std::clog << "Rendering...\n";
 
-    std::clog << "Runtime: " 
-              << std::setprecision(2) 
-              << clock.elapsed() 
-              << "s\n";
+    renderer::Framebuffer out = renderer.Render();
+
+    out.Save(output_file);
+
+    std::clog << "Saved: " << output_file << "\n";
+    std::clog << "Runtime: "
+              << std::setprecision(2)
+              << clock.elapsed() << "s\n";
 
     return 0;
 }
+

@@ -1,12 +1,7 @@
 #pragma once
 
-#include <vector>
-#include <iostream>
-#include <algorithm>
-
-#include "core/color.h"
-#include "integrator/pixel_state.h"
-#include "integrator/ray_state.h"
+#include "core/ray.h"
+#include "renderer/framebuffer.h"
 
 namespace rt::scene {
 class Scene;
@@ -30,7 +25,7 @@ public:
         int batch_size  = 8192
     );
 
-    void Render();   // Only declaration here
+    Framebuffer Render();   // Only declaration here
 
 private:
     const scene::Scene&   world;

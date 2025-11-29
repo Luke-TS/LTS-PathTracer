@@ -2,7 +2,7 @@
 
 #include "core/color.h"
 #include "core/interval.h"
-#include "scene/image.h"
+#include "texture_image.h"
 
 #include <memory>
 
@@ -51,7 +51,7 @@ public:
     core::Color Value(double u, double v, const core::Point3& p) const override;
 
 private:
-    scene::Image image_;
+    TextureImage image_;
 };
 
 } // namespace rt::material

@@ -1,19 +1,19 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "third-party/stb/stb_image.h"
 
-#include "scene/image.h"
+#include "texture_image.h"
 #include <cstdlib>
 #include <iostream>
 
-namespace rt::scene {
+namespace rt::material {
 
-Image::Image(const std::string& filename) {
+TextureImage::TextureImage(const std::string& filename) {
   if (!Load(filename)) {
     std::cerr << "ERROR: Could not load image '" << filename << "'\n";
   }
 }
 
-bool Image::Load(const std::string& filename) {
+bool TextureImage::Load(const std::string& filename) {
     int n = 3;
     float* data = nullptr;
 
@@ -40,14 +40,14 @@ bool Image::Load(const std::string& filename) {
     return true;
 }
 
-void Image::ConvertToBytes() {
+void TextureImage::ConvertToBytes() {
   bdata_.resize(width_ * height_ * 3);
 
   for (size_t i = 0; i < bdata_.size(); ++i)
     bdata_[i] = FloatToByte(fdata_[i]);
 }
 
-const unsigned char* Image::PixelData(int x, int y) const {
+const unsigned char* TextureImage::PixelData(int x, int y) const {
   if (bdata_.empty()) {
     static unsigned char magenta[3] = {255, 0, 255};
     return magenta;
@@ -60,13 +60,13 @@ const unsigned char* Image::PixelData(int x, int y) const {
 }
 
 // helpers
-int Image::Clamp(int x, int low, int high) {
+int TextureImage::Clamp(int x, int low, int high) {
   if (x < low) return low;
   if (x < high) return x;
   return high - 1;
 }
 
-unsigned char Image::FloatToByte(float value) {
+unsigned char TextureImage::FloatToByte(float value) {
   if (value <= 0.0f) return 0;
   if (value >= 1.0f) return 255;
   return static_cast<unsigned char>(value * 255.999f);
