@@ -7,6 +7,7 @@
 
 #include "geom/sphere.h"
 #include "geom/quad.h"
+#include "geom/cuboid.h"
 #include "geom/triangle.h"
 #include "geom/bvh.h"
 #include "geom/instance.h"
@@ -216,6 +217,14 @@ makeObject(const json& obj,
             obj.value("p2", std::vector<double>{0,0,0}),
             obj.value("p3", std::vector<double>{0,0,0}),
             obj.value("p4", std::vector<double>{0,0,0}),
+            mats.at(obj.at("material"))
+        );
+    }
+
+    if (type == "cuboid") {
+        return std::make_shared<geom::Cuboid>(
+            obj.value("p1", std::vector<double>{0,0,0}),
+            obj.value("p2", std::vector<double>{0,0,0}),
             mats.at(obj.at("material"))
         );
     }
