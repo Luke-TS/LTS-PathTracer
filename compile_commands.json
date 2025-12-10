@@ -1,0 +1,116 @@
+[
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/main.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/main.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/main.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/core/types/interval.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/core/types/interval.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/core/types/interval.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/core/types/interval.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/geometry/primitives/sphere.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/geometry/primitives/sphere.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/geometry/primitives/sphere.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/geometry/primitives/sphere.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/geometry/primitives/triangle.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/geometry/primitives/triangle.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/geometry/primitives/triangle.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/geometry/primitives/triangle.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/geometry/primitives/quad.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/geometry/primitives/quad.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/geometry/primitives/quad.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/geometry/primitives/quad.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/geometry/primitives/rect.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/geometry/primitives/rect.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/geometry/primitives/rect.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/geometry/primitives/rect.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/geometry/composite/cuboid.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/geometry/composite/cuboid.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/geometry/composite/cuboid.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/geometry/composite/cuboid.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/geometry/composite/instance.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/geometry/composite/instance.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/geometry/composite/instance.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/geometry/composite/instance.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/geometry/accel/aabb.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/geometry/accel/aabb.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/geometry/accel/aabb.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/geometry/accel/aabb.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/geometry/accel/bvh.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/geometry/accel/bvh.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/geometry/accel/bvh.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/geometry/accel/bvh.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/materials/material.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/materials/material.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/materials/material.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/materials/material.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/textures/texture.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/textures/texture.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/textures/texture.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/textures/texture.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/scene/scene.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/scene/scene.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/scene/scene.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/scene/scene.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/scene/scene_loader.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/scene/scene_loader.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/scene/scene_loader.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/scene/scene_loader.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/scene/camera.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/scene/camera.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/scene/camera.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/scene/camera.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/scene/texture_image.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/scene/texture_image.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/scene/texture_image.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/scene/texture_image.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/rendering/framebuffer.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/rendering/framebuffer.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/rendering/framebuffer.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/rendering/framebuffer.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build",
+  "command": "/usr/bin/c++ -DASSETS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets\\\" -DHAS_OPENMP -DMODELS_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/models\\\" -DSCENES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/scenes\\\" -DTEXTURES_DIR=\\\"/home/steluk/repos/3360-ray-tracer/assets/textures\\\" -I/home/steluk/repos/3360-ray-tracer/src -I/home/steluk/repos/3360-ray-tracer/SYSTEM -I/home/steluk/repos/3360-ray-tracer/third-party -I/home/steluk/repos/3360-ray-tracer/external/tinyobjloader -I/home/steluk/repos/3360-ray-tracer/build/_deps/json-src/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -o CMakeFiles/ray_tracer.dir/src/rendering/wavefront.cpp.o -c /home/steluk/repos/3360-ray-tracer/src/rendering/wavefront.cpp",
+  "file": "/home/steluk/repos/3360-ray-tracer/src/rendering/wavefront.cpp",
+  "output": "CMakeFiles/ray_tracer.dir/src/rendering/wavefront.cpp.o"
+},
+{
+  "directory": "/home/steluk/repos/3360-ray-tracer/build/external/tinyobjloader",
+  "command": "/usr/bin/c++   -std=c++11 -o CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o -c /home/steluk/repos/3360-ray-tracer/external/tinyobjloader/tiny_obj_loader.cc",
+  "file": "/home/steluk/repos/3360-ray-tracer/external/tinyobjloader/tiny_obj_loader.cc",
+  "output": "external/tinyobjloader/CMakeFiles/tinyobjloader.dir/tiny_obj_loader.cc.o"
+}
+]
