@@ -14,6 +14,8 @@
 
 #include "material/material.h"
 #include "material/texture.h"
+#include "scene/environment.h"  // Add this
+#include "scene/cubemap_utils.h"
 
 using json = nlohmann::json;
 
@@ -84,6 +86,75 @@ makeTexture(const std::string& name, const json& t)
     }
 
     throw std::runtime_error("Unknown texture: " + type);
+}
+
+// Environment loader
+static std::unique_ptr<Environment>
+makeEnvironment(const json& j)
+{
+    if (!j.contains("environment")) {
+        // Default gradient environment
+        return std::make_unique<GradientEnvironment>(
+            core::Color(1.0, 1.0, 1.0),  // bottom (white)
+            core::Color(0.5, 0.7, 1.0)   // top (sky blue)
+        );
+    }
+
+    const auto& env = j["environment"];
+    std::string type = env.at("type");
+
+    if (type == "cubemap") {
+        std::shared_ptr<material::Texture> faces[6];
+        
+        // Check if it's a single file or separate files
+        if (env.contains("file")) {
+            // Single file cube map
+            std::string layout_str = env.value("layout", "horizontal_cross");
+            CubemapLayout layout;
+            
+            if (layout_str == "horizontal_cross") {
+                layout = CubemapLayout::HORIZONTAL_CROSS;
+            } else if (layout_str == "vertical_cross") {
+                layout = CubemapLayout::VERTICAL_CROSS;
+            } else if (layout_str == "horizontal_strip") {
+                layout = CubemapLayout::HORIZONTAL_STRIP;
+            } else if (layout_str == "vertical_strip") {
+                layout = CubemapLayout::VERTICAL_STRIP;
+            } else {
+                throw std::runtime_error("Unknown cubemap layout: " + layout_str);
+            }
+            
+            auto extracted = ExtractCubemapFaces(env["file"], layout);
+            for (int i = 0; i < 6; ++i) {
+                faces[i] = extracted[i];
+            }
+        }
+        else {
+            // Separate face files
+            faces[0] = std::make_shared<material::ImageTexture>(env["faces"]["px"]);
+            faces[1] = std::make_shared<material::ImageTexture>(env["faces"]["nx"]);
+            faces[2] = std::make_shared<material::ImageTexture>(env["faces"]["py"]);
+            faces[3] = std::make_shared<material::ImageTexture>(env["faces"]["ny"]);
+            faces[4] = std::make_shared<material::ImageTexture>(env["faces"]["pz"]);
+            faces[5] = std::make_shared<material::ImageTexture>(env["faces"]["nz"]);
+        }
+        
+        double intensity = env.value("intensity", 1.0);
+        return std::make_unique<CubemapEnvironment>(faces, intensity);
+    }
+    
+    if (type == "gradient") {
+        core::Color bottom = readColor(env.at("colorBottom"));
+        core::Color top = readColor(env.at("colorTop"));
+        return std::make_unique<GradientEnvironment>(bottom, top);
+    }
+    
+    if (type == "solid") {
+        core::Color color = readColor(env.at("color"));
+        return std::make_unique<SolidEnvironment>(color);
+    }
+
+    throw std::runtime_error("Unknown environment type: " + type);
 }
 
 // mesh loader
@@ -291,9 +362,11 @@ SceneLoadResult SceneLoader::LoadFromJSON(const std::string& path)
     // TOP-LEVEL BVH
     Scene final;
     final.Add(std::make_shared<geom::Bvh>(world));
+    
+    // ENVIRONMENT
+    final.environment = makeEnvironment(j);
 
-    return { final, cam_cfg };
+    return { std::move(final), cam_cfg };
 }
 
 } // namespace rt::scene
-

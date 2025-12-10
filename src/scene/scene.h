@@ -9,10 +9,14 @@
 #include "geom/aabb.h"
 #include "geom/hittable.h"
 
+#include "environment.h"
+
 namespace rt::scene {
 
 class Scene : public geom::Hittable {
 public:
+    std::unique_ptr<Environment> environment;
+    
     Scene();
     explicit Scene(std::shared_ptr<geom::Hittable> object);
 
@@ -25,12 +29,15 @@ public:
     bool Hit(const core::Ray& r, core::Interval ray_t, geom::HitRecord& rec) const override;
     geom::Aabb BoundingBox() const override;
 
+
+
     int TypeId() const override;
     int ObjectIndex() const override;
     void SetObjIndex(int) override;
 
 private:
     std::vector<std::shared_ptr<geom::Hittable>> objects_;
+    std::unique_ptr<Environment> environment_;
     geom::Aabb bbox_;
 };
 

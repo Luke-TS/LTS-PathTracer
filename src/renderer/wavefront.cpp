@@ -123,7 +123,7 @@ Framebuffer WavefrontRenderer::Render() {
 
                     // Miss or depth limit
                     if (!rec.hit || rs.depth >= max_depth) {
-                        L += rs.throughput * background(r);
+                        L += rs.throughput * world.environment->sample(r.direction());
                         integrator::RecordSample(ps, L);
                         if (!ps.converged &&
                             integrator::IsConverged(ps, kRelThresh, kMinSamples))

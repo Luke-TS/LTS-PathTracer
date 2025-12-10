@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
     }
 
     // Scene + camera
-    rt::scene::Scene world = loaded.world;
+    rt::scene::Scene world = std::move(loaded.world);
     rt::scene::CameraConfig cam_cfg = loaded.camera;
 
     rt::scene::Camera cam;

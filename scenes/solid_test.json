@@ -1,0 +1,43 @@
+{
+    "camera": {
+        "aspectRatio": 1.5,
+        "imageWidth": 600,
+        "samplesPerPixel": 50,
+        "maxDepth": 20,
+        "vfov": 60.0,
+        "lookfrom": [0, 2, 5],
+        "lookat":   [0, 1, 0],
+        "vup":      [0.0, 1.0, 0.0],
+        "defocusAngle": 0.0,
+        "focusDist": 5.0
+    },
+    "environment": {
+        "type": "solid",
+        "color": [0.1, 0.1, 0.15]
+    },
+    "materials": {
+        "light_emitter": { 
+            "type": "diffuse_light", 
+            "color": [4.0, 4.0, 4.0] 
+        },
+        "mirror": { 
+            "type": "metal", 
+            "albedo": [0.9, 0.9, 0.9], 
+            "fuzz": 0.0 
+        }
+    },
+    "objects": [
+        {
+            "type": "sphere",
+            "center": [0, 1, 0],
+            "radius": 1.0,
+            "material": "mirror"
+        },
+        {
+            "type": "sphere",
+            "center": [0, 5, 0],
+            "radius": 0.5,
+            "material": "light_emitter"
+        }
+    ]
+}
