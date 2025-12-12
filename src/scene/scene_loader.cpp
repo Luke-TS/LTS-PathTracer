@@ -1,20 +1,11 @@
-#include "geom/quad.h"
 #include "scene/scene_loader.h"
 
-#include <fstream>
-#include <stdexcept>
-#include <tiny_obj_loader.h>
-
-#include "geom/sphere.h"
-#include "geom/quad.h"
-#include "geom/cuboid.h"
-#include "geom/triangle.h"
-#include "geom/bvh.h"
-#include "geom/instance.h"
-
-#include "material/material.h"
-#include "material/texture.h"
-#include "scene/environment.h"  // Add this
+#include "geometry/accel/bvh.h"
+#include "geometry/composite/cuboid.h"
+#include "geometry/composite/instance.h"
+#include "geometry/primitives/quad.h"
+#include "geometry/primitives/sphere.h"
+#include "geometry/primitives/triangle.h"
 #include "scene/cubemap_utils.h"
 
 using json = nlohmann::json;

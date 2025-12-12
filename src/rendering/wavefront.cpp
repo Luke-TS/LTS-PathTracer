@@ -1,15 +1,4 @@
-#include "renderer/wavefront.h"
-
-#include "integrator/pixel_state.h"
-#include "integrator/ray_state.h"
-#include "material/material.h"
-#include "core/math_utils.h"
-#include "renderer/framebuffer.h"
-#include "scene/scene.h"
-#include "scene/camera.h"
-#include "geom/hittable.h"
-#include "integrator/ray_integrator.h"
-#include <omp.h>
+#include "rendering/wavefront.h"
 
 using namespace rt;
 

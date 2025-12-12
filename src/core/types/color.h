@@ -1,7 +1,6 @@
 #pragma once
 
-#include "interval.h"
-#include "vec3.h"
+#include "core/math/vec3.h"
 #include <algorithm>
 
 namespace rt::core {

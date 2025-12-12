@@ -3,11 +3,11 @@
 #include <memory>
 #include <vector>
 
-#include "core/ray.h"
-#include "core/interval.h"
+#include "core/types/ray.h"
+#include "core/types/interval.h"
 
-#include "geom/aabb.h"
-#include "geom/hittable.h"
+#include "geometry/accel/aabb.h"
+#include "geometry/hittable.h"
 
 #include "environment.h"
 

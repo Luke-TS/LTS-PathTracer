@@ -1,6 +1,7 @@
 #pragma once
 #include <cmath>
-#include "core/vec3.h"
+
+#include "core/math/vec3.h"
 
 namespace rt::core {
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "core/color.h"
+#include "core/types/color.h"
 
 namespace rt::renderer {
 

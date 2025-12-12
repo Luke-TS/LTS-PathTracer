@@ -1,6 +1,6 @@
 #include "triangle.h"
 
-#include "core/constants.h"
+#include "core/utils/constants.h"
 
 namespace rt::geom {
 

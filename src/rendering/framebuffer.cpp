@@ -4,7 +4,7 @@
 #pragma GCC diagnostic ignored "-Wmissing-braces"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "third-party/stb/stb_image_write.h"
+#include "../third-party/stb/stb_image_write.h"
 
 #pragma GCC diagnostic pop
 

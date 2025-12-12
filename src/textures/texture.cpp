@@ -1,7 +1,6 @@
 #include "texture.h"
 
 #include <cmath>
-#include <algorithm>
 
 namespace rt::material {
 
@@ -59,6 +58,14 @@ core::Color ImageTexture::Value(double u, double v, const core::Point3& p) const
 
     const double scale = 1.0 / 255.0;
     return core::Color(scale * pixel[0], scale * pixel[1], scale * pixel[2]);
+}
+
+int ImageTexture::Width() const {
+    return image_.Width();
+}
+
+int ImageTexture::Height() const {
+    return image_.Height();
 }
 
 } // namespace rt::material

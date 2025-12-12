@@ -1,4 +1,4 @@
-#include "geom/cuboid.h"
+#include "geometry/composite/cuboid.h"
 
 namespace rt::geom {
 

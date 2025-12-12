@@ -2,11 +2,11 @@
 #include <memory>
 #include <vector>
 
-#include "geom/hittable.h"
-#include "geom/triangle.h"
-#include "geom/aabb.h"
-#include "core/vec3.h"
-#include "core/ray.h"
+#include "geometry/hittable.h"
+#include "geometry/primitives/triangle.h"
+#include "geometry/accel/aabb.h"
+#include "core/math/vec3.h"
+#include "core/types/ray.h"
 
 namespace rt::geom {
 

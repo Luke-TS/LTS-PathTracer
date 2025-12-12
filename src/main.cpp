@@ -1,11 +1,14 @@
 #include <iostream>
 #include <iomanip>
-#include "core/timer.h"
-#include "integrator/cpu_ray_integrator.h"
+
+#include "core/utils/timer.h"
+
+#include "rendering/wavefront.h"
+#include "rendering/framebuffer.h"
+#include "rendering/integrators/cpu_ray_integrator.h"
+
 #include "scene/scene_loader.h"
 #include "scene/camera.h"
-#include "renderer/wavefront.h"
-#include "renderer/framebuffer.h"
 
 using namespace rt;
 

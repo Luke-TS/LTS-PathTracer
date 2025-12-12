@@ -1,5 +1,4 @@
-#include "geom/quad.h"
-#include "geom/triangle.h"
+#include "geometry/primitives/quad.h"
 
 namespace rt::geom {
 

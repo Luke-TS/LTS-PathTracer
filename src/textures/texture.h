@@ -1,8 +1,9 @@
 #pragma once
 
-#include "core/color.h"
-#include "core/interval.h"
-#include "texture_image.h"
+#include "core/types/color.h"
+#include "core/types/interval.h"
+
+#include "scene/texture_image.h"
 
 #include <memory>
 
@@ -49,6 +50,9 @@ public:
     explicit ImageTexture(std::string filename);
 
     core::Color Value(double u, double v, const core::Point3& p) const override;
+
+    int Width() const;
+    int Height() const;
 
 private:
     TextureImage image_;

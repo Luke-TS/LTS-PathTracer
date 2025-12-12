@@ -1,10 +1,10 @@
-#include "geom/instance.h"
+#include "geometry/composite/instance.h"
 
-#include "core/math_utils.h"
-#include "geom/hittable.h"
-#include "core/mat4.h"
-#include "core/ray.h"
-#include "geom/aabb.h"
+#include "core/math/math_utils.h"
+#include "geometry/hittable.h"
+#include "core/math/mat4.h"
+#include "core/types/ray.h"
+#include "geometry/accel/aabb.h"
 
 namespace rt::geom {
 

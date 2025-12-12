@@ -1,16 +1,11 @@
 #pragma once
 #include <string>
-#include <unordered_map>
-#include <memory>
 #include <nlohmann/json.hpp>
+#include <tiny_obj_loader.h>
 
 #include "scene/scene.h"
 #include "scene/camera.h"
-#include "geom/hittable.h"
-#include "geom/sphere.h"
-#include "geom/rect.h"
-#include "geom/bvh.h"
-#include "material/material.h"
+
 
 namespace rt::scene {
 

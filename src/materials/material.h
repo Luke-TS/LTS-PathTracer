@@ -1,10 +1,15 @@
 #pragma once
 
 #include <memory>
-#include "core/color.h"
-#include "core/ray.h"
-#include "core/vec3.h"
-#include "texture.h"
+#include "core/types/color.h"
+#include "core/types/ray.h"
+#include "core/math/vec3.h"
+#include "core/math/math_utils.h"
+
+#include "textures/texture.h"
+
+#include "geometry/hittable.h"
+#include "textures/texture.h"
 
 namespace rt::geom { class HitRecord; }
 

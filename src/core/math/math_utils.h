@@ -2,11 +2,11 @@
 
 #include <cmath>
 
-#include "constants.h"
-#include "core/mat4.h"
-#include "core/ray.h"
-#include "random.h" 
-#include "vec3.h"
+#include "core/utils/constants.h"
+#include "core/math/mat4.h"
+#include "core/types/ray.h"
+#include "core/utils/random.h" 
+#include "core/math/vec3.h"
 
 namespace rt::core {
 

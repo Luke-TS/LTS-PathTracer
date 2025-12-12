@@ -5,14 +5,14 @@
 #include <algorithm>
 #include <limits>
 
-#include "core/ray.h"
-#include "core/interval.h"
+#include "core/types/ray.h"
+#include "core/types/interval.h"
 
 #include "scene/scene.h"
 
-#include "hittable.h"
-#include "aabb.h"
-#include "mesh.h"
+#include "geometry/hittable.h"
+#include "geometry/accel/aabb.h"
+#include "geometry/composite/mesh.h"
 
 namespace rt::geom {
 

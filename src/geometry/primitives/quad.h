@@ -1,6 +1,6 @@
 #pragma once
-#include "geom/hittable.h"
-#include "geom/triangle.h"
+#include "geometry/hittable.h"
+#include "geometry/primitives/triangle.h"
 
 namespace rt::geom {
 

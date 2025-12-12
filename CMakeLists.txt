@@ -67,6 +67,7 @@ set(SCENE_SOURCES
     src/scene/scene_loader.cpp
     src/scene/camera.cpp
     src/scene/texture_image.cpp
+    src/scene/cubemap_utils.cpp
 )
 
 # Rendering
@@ -198,6 +199,17 @@ target_compile_options(${PROJECT_NAME} PRIVATE
         $<$<COMPILE_LANGUAGE:CXX>:-g -O0>
         $<$<COMPILE_LANGUAGE:CUDA>:-G -g>
     >
+)
+
+# ═════════════════════════════════════
+#  Resource Macros
+# ═════════════════════════════════════
+target_compile_definitions(${PROJECT_NAME} PUBLIC
+    IMAGE_DIR="${CMAKE_SOURCE_DIR}/assets/textures"
+)
+
+target_compile_definitions(${PROJECT_NAME} PUBLIC
+    MODEL_DIR="${CMAKE_SOURCE_DIR}/assets/models"
 )
 
 # ═════════════════════════════════════

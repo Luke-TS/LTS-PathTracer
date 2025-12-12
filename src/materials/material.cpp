@@ -1,12 +1,4 @@
 #include "material.h"
-#include "geom/hittable.h"
-#include "core/random.h"
-#include "core/constants.h"
-#include "core/math_utils.h"
-#include "texture.h"
-
-#include <algorithm>
-#include <cmath>
 
 namespace rt::material {
 

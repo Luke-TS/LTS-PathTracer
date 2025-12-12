@@ -2,11 +2,11 @@
 
 #include <memory>
 
-#include "core/ray.h"
-#include "core/vec3.h"
-#include "core/interval.h"
+#include "core/types/ray.h"
+#include "core/math/vec3.h"
+#include "core/types/interval.h"
 
-#include "aabb.h"
+#include "geometry/accel/aabb.h"
 
 // to solve circular references between material and hittable code
 namespace rt::material {

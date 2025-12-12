@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/ray.h"
-#include "core/color.h"
+#include "core/types/ray.h"
+#include "core/types/color.h"
 
 namespace rt::integrator {
 

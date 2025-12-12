@@ -1,10 +1,10 @@
 #pragma once
 
-#include "core/constants.h"
-#include "core/interval.h"
-#include "core/vec3.h"
-#include "hittable.h"
-#include "aabb.h"
+#include "core/utils/constants.h"
+#include "core/types/interval.h"
+#include "core/math/vec3.h"
+#include "geometry/hittable.h"
+#include "geometry/accel/aabb.h"
 
 #include <memory>
 

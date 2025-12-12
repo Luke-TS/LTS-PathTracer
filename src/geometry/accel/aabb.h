@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core/interval.h"
-#include "core/vec3.h"
-#include "core/ray.h"
+#include "core/types/interval.h"
+#include "core/math/vec3.h"
+#include "core/types/ray.h"
 
 namespace rt::geom {
 

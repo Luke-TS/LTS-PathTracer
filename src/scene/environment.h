@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/color.h"
-#include "material/texture.h"
+#include "core/types/color.h"
+#include "textures/texture.h"
 #include <memory>
 
 namespace rt::scene {

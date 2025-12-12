@@ -1,11 +1,11 @@
 #pragma once
 
-#include "core/interval.h"
-#include "core/vec3.h"
-#include "core/ray.h"
-#include "core/math_utils.h"
+#include "core/types/interval.h"
+#include "core/math/vec3.h"
+#include "core/types/ray.h"
+#include "core/math/math_utils.h"
 
-#include "hittable.h"
+#include "geometry/hittable.h"
 
 #include <memory>
 

@@ -3,10 +3,10 @@
 #include <memory>
 #include <vector>
 
-#include "core/vec3.h"
-#include "core/ray.h"
+#include "core/math/vec3.h"
+#include "core/types/ray.h"
 
-#include "geom/hittable.h"
+#include "geometry/hittable.h"
 
 // Forward declare to avoid circular include
 class Material;

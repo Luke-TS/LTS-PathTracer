@@ -1,0 +1,52 @@
+{
+    "camera": {
+        "aspectRatio": 1.5,
+        "imageWidth": 800,
+        "samplesPerPixel": 100,
+        "maxDepth": 50,
+        "vfov": 80.0,
+        "lookfrom": [0, 2, 8],
+        "lookat":   [0, 1, 0],
+        "vup":      [0.0, 1.0, 0.0],
+        "defocusAngle": 0.0,
+        "focusDist": 10.0
+    },
+    "environment": {
+        "type": "cubemap",
+        "file": "Cubemap_Sky_01-512x512.png",
+        "intensity": 1.0
+    },
+    "materials": {
+        "ground": { 
+            "type": "lambertian", 
+            "albedo": [0.8, 0.8, 0.8] 
+        },
+        "mirror": { 
+            "type": "metal", 
+            "albedo": [0.95, 0.95, 0.95], 
+            "fuzz": 0.0 
+        },
+        "brushed_metal": { 
+            "type": "metal", 
+            "albedo": [0.8, 0.85, 0.88], 
+            "fuzz": 0.2 
+        },
+        "glass": { 
+            "type": "dielectric", 
+            "ior": 1.5 
+        },
+        "gold": { 
+            "type": "metal", 
+            "albedo": [1.0, 0.86, 0.57], 
+            "fuzz": 0.05 
+        }
+    },
+    "objects": [
+        {
+            "type": "sphere",
+            "center": [0, 1, 0],
+            "radius": 2,
+            "material": "mirror"
+        }
+    ]
+}

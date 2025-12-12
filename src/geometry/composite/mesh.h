@@ -4,9 +4,9 @@
 #include <vector>
 #include <array>
 
-#include "hittable.h"
+#include "geometry/hittable.h"
 #include "scene/scene.h"
-#include "triangle.h"
+#include "geometry/primitives/triangle.h"
 
 namespace rt::geom {
 

@@ -7,14 +7,14 @@
 #include <sched.h>
 #include <unordered_map>
 
-#include "core/color.h"
-#include "core/constants.h"
-#include "core/math_utils.h"
-#include "core/interval.h"
-#include "core/vec3.h"
+#include "core/types/color.h"
+#include "core/utils/constants.h"
+#include "core/math/math_utils.h"
+#include "core/types/interval.h"
+#include "core/math/vec3.h"
 
-#include "geom/hittable.h"
-#include "material/material.h"
+#include "geometry/hittable.h"
+#include "materials/material.h"
 
 namespace rt::scene {
 

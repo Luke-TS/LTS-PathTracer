@@ -2,7 +2,7 @@
 
 #include "ray_integrator.h"
 
-#include "geom/hittable.h"
+#include "geometry/hittable.h"
 
 #include "scene/scene.h"      
 

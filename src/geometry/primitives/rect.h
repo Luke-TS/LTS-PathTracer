@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core/interval.h"
-#include "hittable.h"
-#include "aabb.h"
+#include "core/types/interval.h"
+#include "geometry/hittable.h"
+#include "geometry/accel/aabb.h"
 
 #include <memory>
 

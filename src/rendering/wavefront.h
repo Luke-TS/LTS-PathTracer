@@ -1,7 +1,15 @@
 #pragma once
 
-#include "core/ray.h"
-#include "renderer/framebuffer.h"
+#include "core/types/ray.h"
+
+#include "rendering/framebuffer.h"
+#include "integrators/ray_integrator.h"
+#include "integrators/pixel_state.h"
+#include "integrators/ray_state.h"
+
+#include "scene/scene.h"
+#include "scene/camera.h"
+#include <omp.h>
 
 namespace rt::scene {
 class Scene;

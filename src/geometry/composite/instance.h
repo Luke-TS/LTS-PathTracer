@@ -1,8 +1,8 @@
 #pragma once
 
 #include <memory>
-#include "geom/hittable.h"
-#include "core/mat4.h"
+#include "geometry/hittable.h"
+#include "core/math/mat4.h"
 
 namespace rt::geom {
 
