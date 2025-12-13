@@ -1,0 +1,61 @@
+{
+    "camera": {
+        "aspectRatio": 1.5,
+        "imageWidth": 500,
+        "samplesPerPixel": 25,
+        "maxDepth": 20,
+        "vfov": 40.0,
+
+        "lookfrom": [-2, 5, -7],
+        "lookat":   [5, 5, 5],
+        "vup":      [0, 1, 0],
+
+        "defocusAngle": 0.0,
+        "focusDist": 12.0
+    },
+    "environment": {
+        "type": "cubemap",
+        "file": "high-def-sky.png",
+        "intensity": 1.0
+    },
+    "textures": {
+        "checker": {
+            "type": "checker",
+            "scale": 0.32,
+            "color1": [0.2, 0.3, 0.1],
+            "color2": [0.9, 0.9, 0.9]
+        }
+    },
+
+    "materials": {
+        "red":   { "type": "lambertian", "albedo": [0.75, 0.1, 0.1] },
+        "white": { "type": "lambertian", "albedo": [0.73, 0.73, 0.73] },
+        "green": { "type": "lambertian", "albedo": [0.12, 0.45, 0.15] },
+        "blue":  { "type": "lambertian", "albedo": [0.2, 0.3, 0.8] },
+        "metal": { "type": "metal", "albedo": [0.9, 0.9, 0.95], "fuzz": 0.01 },
+        "chrome": { "type": "metal", "albedo": [0.95, 0.96, 0.99], "fuzz": 0.0 },
+        "glass": { "type": "dielectric", "ior": 1.5 },
+        "fogglass": { "type": "dielectric", "ior": 1.33, "absorb": [0.7, 0.85, 1.0] },
+        "light": { "type": "diffuse_light", "color": [15,15,15] },
+        "fill":  { "type": "diffuse_light", "color": [4,4,4] },
+        "checker": {"type": "lambertian", "texture": "checker"}
+    },
+
+    "meshes": {
+        "dragon": {
+            "file": "xyzrgb_dragon.obj",
+            "material": "red",
+            "normalize": true,
+            "unitScale": 1.0
+        }
+    },
+
+    "objects": [
+        {
+            "type": "instance",
+            "instanceOf": "dragon",
+            "translate": [5, 5, 5],
+            "scale": 9.0
+        }
+    ]
+}

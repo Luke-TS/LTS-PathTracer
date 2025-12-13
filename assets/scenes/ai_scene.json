@@ -1,13 +1,13 @@
 {
     "camera": {
         "aspectRatio": 1.5,
-        "imageWidth": 1000,
-        "samplesPerPixel": 1000,
-        "maxDepth": 150,
+        "imageWidth": 800,
+        "samplesPerPixel": 250,
+        "maxDepth": 120,
         "vfov": 40.0,
 
-        "lookfrom": [5, 5, -7],
-        "lookat":   [5, 2, 5],
+        "lookfrom": [5, 8, -10],
+        "lookat":   [5, 4, 5],
         "vup":      [0, 1, 0],
 
         "defocusAngle": 0.0,
@@ -37,15 +37,15 @@
         "chrome": { "type": "metal", "albedo": [0.95, 0.96, 0.99], "fuzz": 0.0 },
         "glass": { "type": "dielectric", "ior": 1.5 },
         "fogglass": { "type": "dielectric", "ior": 1.33, "absorb": [0.7, 0.85, 1.0] },
-        "light": { "type": "diffuse_light", "color": [15,15,15] },
+        "light": { "type": "diffuse_light", "color": [10,10,10] },
         "fill":  { "type": "diffuse_light", "color": [4,4,4] },
         "checker": {"type": "lambertian", "texture": "checker"}
     },
 
     "meshes": {
         "bunny": {
-            "file": "stanford-bunny.obj",
-            "material": "chrome",
+            "file": "xyzrgb_dragon.obj",
+            "material": "red",
             "normalize": true,
             "unitScale": 1.0
         }
@@ -121,11 +121,11 @@
         {
             "type": "instance",
             "instanceOf": "bunny",
-            "translate": [5, 2.15, 4],
-            "scale": 4.0
+            "translate": [5, 2.15, 6.0],
+            "scale": 7.0
         },
 
-        { "type":"sphere", "center":[2,5,6], "radius":1.0, "material":"glass" },
-        { "type":"sphere", "center":[7.0,3.0,5.2], "radius":0.8, "material":"metal" }
+        { "type":"sphere", "center":[2,7,6], "radius":1.2, "material":"glass" },
+        { "type":"sphere", "center":[7.0,6.0,5.2], "radius":1.0, "material":"metal" }
     ]
 }
